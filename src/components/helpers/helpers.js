@@ -61,5 +61,28 @@ export function toggleCheckbox(event) {
 				text: 'Text 1'
 			}
 		]
+	},{
+		type: 'single',
+		title: 'Question 4',
+		description: 'Description 4',
+		answers: [
+			{
+				smile: '😓',
+				text: 'Text 2'
+			},
+			{
+				smile: '😓',
+				text: 'Text 3'
+			},
+			{
+				smile: '😓',
+				text: 'Text 1'
+			}
+		]
 	}
+	
 ]
+
+export function nextQuestion(prevId) {
+	return
+}

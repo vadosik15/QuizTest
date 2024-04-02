@@ -1,17 +1,23 @@
   
-  <script setup>
-  </script>
+<script setup>
+import {defineProps} from 'vue';
+const props = defineProps({
+  name:String,
+  type:String
+});
+
+</script>
   
 
 <template>
     <div class="name-quiz">
-      <h1 class="name-quiz__title">Heading</h1>
+      <h1 class="name-quiz__title">{{props.name}}</h1>
       <p class="name-quiz__type">Choose all that apply</p>
     </div>
 </template>
 
-  <style>
-  
+
+<style>  
 .name-quiz__type {
   font-family: Montserrat;
   font-size: 16px;

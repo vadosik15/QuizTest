@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="container_btn" @click="$emit('click')">
+    <div class="container_btn">
         <button class="btn_next">Continue</button>
     </div>
 </template>

@@ -1,22 +1,25 @@
 <script setup>
-import { defineProps} from 'vue';
+
+import { defineProps, watch, ref } from 'vue';
 
 const props = defineProps({
-  progresLength: Number
+  progresLength: Number,
+  actualnumber: Number,
+});
+const actualWidth = ref((props.actualnumber * 100) / props.progresLength);
+
+watch(() => props.actualnumber, (newVal) => {
+  actualWidth.value = (newVal * 100) / props.progresLength;
 });
 
-console.log(props.progresLength)
 </script>
 
-
-
 <template>
-  <div class="progress-bar">
-    <div class="progress-bar__string"></div>
+  <div class="progress-bar" ref="progressBar">
+    <div class="progress-bar__string" :style="{ width: actualWidth + '%' }">
+    </div>
   </div>
 </template>
-
-
 
 <style>
 .progress-bar {
@@ -29,8 +32,6 @@ console.log(props.progresLength)
 
 .progress-bar__string {
   height: 100%;
-
-  width: 40%;
   background: #806FFB;
 }
 </style>

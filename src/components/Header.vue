@@ -2,14 +2,20 @@
 import { defineProps } from 'vue';
 
 const props = defineProps({
-  progresLength: Number
-})
+  progresLength: Number,
+  decrement: Function,
+  actualnumber: Number
+});
+
+const handleClick = () => {
+  props.decrement();
+};
 
 </script>
 
 <template>
   <header>
-    <img src="../img/Icon Left.png" class="header__arrow" alt="">
+    <img @click="handleClick" src="../img/Icon Left.png" class="header__arrow" alt="">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="32" height="32" rx="8" fill="black" />
       <path
@@ -23,18 +29,20 @@ const props = defineProps({
         </linearGradient>
       </defs>
     </svg>
-    <div class="header__count">1/{{ props.progresLength }}</div>
+    <div class="header__count">{{props.actualnumber + 1}}/{{ props.progresLength }}</div>
   </header>
 </template>
-
-
-
-
 
 <style>
 .header__arrow {
   width: 16px;
   height: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header__arrow:hover {
+  transform: scale(1.1);
 }
 
 header {
